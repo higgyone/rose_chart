@@ -1,0 +1,5 @@
+*.venv
+rose_mat*.py
+values.csv
+values.txt
+*.png
