@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import csv
 
-file = 'rand_values.csv'  # Path to your CSV file
+file = 'values.csv' # Path to your CSV file
 
 # Read data from CSV file
 with open(file, 'r') as f:
@@ -29,12 +29,10 @@ ax = plt.subplot(polar=True)
 # Plot bars with different colors
 ax.bar(rad, x, width=widths, color=colors, bottom=0, linewidth=1, edgecolor="black")
 
-
 # Set radial axis limits and ticks
 ax.set_ylim(0, 10)  # Goes out to 10
 ax.set_yticks(np.arange(0, 11, 1))  # Keep grid lines
 ax.set_yticklabels([])  # Remove numeric labels
-
 
 # Keep angular ticks for spoke lines
 ax.set_xticks(rad)  # Positions for spoke lines
@@ -44,10 +42,13 @@ ax.set_xticklabels([])  # Hide default angular labels
 for angle in rad:
     ax.plot([angle, angle], [-10, 10], color="black", alpha=0.3, linewidth=1.2)
 
+# Add multiline to labels by replacing newline `xx` with `\n`
+fixed_newline_names = [name.replace("xx", "\n") for name in names]  # Replace newline with space for printing
+
 # Add custom spaced-out labels
 label_radius = 11  # Distance from center
-for angle, label in zip(rad, names):
-    ax.text(angle, label_radius, label, ha="center", va="center", fontsize=10)
+for angle, label in zip(rad, fixed_newline_names):
+    ax.text(angle, label_radius, label, ha="center", va="center", fontsize=10, multialignment='left')
 
 # Move title further out
 ax.set_title("Permission Wheel", fontsize=14, pad=60)  # pad increases distance
@@ -76,6 +77,8 @@ ax.annotate('', xy=(np.pi, 10), xytext=(np.pi, 9), arrowprops=dict(arrowstyle='-
 ax.annotate('', xy=(np.pi/2, 10), xytext=(np.pi/2, 9), arrowprops=dict(arrowstyle='->', color='black', linewidth=2))  # positive y
 ax.annotate('', xy=(3*np.pi/2, 10), xytext=(3*np.pi/2, 9), arrowprops=dict(arrowstyle='->', color='black', linewidth=2))  # negative y
 
+plt.tight_layout()
+
 # plt.tight_layout()
-plt.savefig('permission_wheel_rnd.png')
+plt.savefig('permission_wheel.png')
 plt.show()
