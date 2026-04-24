@@ -2,9 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import csv
 
+file = 'rand_values.csv'  # Path to your CSV file
 
 # Read data from CSV file
-with open('values.csv', 'r') as f:
+with open(file, 'r') as f:
     reader = csv.DictReader(f)
     rows = list(reader)
 
@@ -49,7 +50,7 @@ for angle, label in zip(rad, names):
     ax.text(angle, label_radius, label, ha="center", va="center", fontsize=10)
 
 # Move title further out
-ax.set_title("Permission Wheel", fontsize=14, pad=50)  # pad increases distance
+ax.set_title("Permission Wheel", fontsize=14, pad=60)  # pad increases distance
 
 # Ensure grid lines are visible
 ax.grid(True, color="black", alpha=0.1, linestyle="-")
@@ -76,5 +77,5 @@ ax.annotate('', xy=(np.pi/2, 10), xytext=(np.pi/2, 9), arrowprops=dict(arrowstyl
 ax.annotate('', xy=(3*np.pi/2, 10), xytext=(3*np.pi/2, 9), arrowprops=dict(arrowstyle='->', color='black', linewidth=2))  # negative y
 
 # plt.tight_layout()
-plt.savefig('permission_wheel.png')
+plt.savefig('permission_wheel_rnd.png')
 plt.show()

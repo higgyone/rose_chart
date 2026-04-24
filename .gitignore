@@ -1,5 +1,7 @@
 *.venv
 rose_mat*.py
-values.csv
-values.txt
+*.csv
+*.txt
 *.png
+!zero_values.csv
+!rand_values.csv
