@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import csv
 
-file = 'values.csv' # Path to your CSV file
+file = 'rand_values.csv' # Path to your CSV file
 
 # Read data from CSV file
 with open(file, 'r') as f:
@@ -94,5 +94,5 @@ ax.annotate('', xy=(3*np.pi/2, 10), xytext=(3*np.pi/2, 9), arrowprops=dict(arrow
 plt.tight_layout()
 
 # plt.tight_layout()
-plt.savefig('permission_wheel.png')
+plt.savefig('permission_wheel_rand.png')
 plt.show()

@@ -5,3 +5,5 @@ rose_mat*.py
 *.png
 !zero_values.csv
 !rand_values.csv
+!permission_wheel_rand.png
+!permission_wheel_zero.png
