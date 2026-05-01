@@ -2,6 +2,8 @@
 
 Creates the Permission Wheel rose chart
 
+This repostory will not be updated anymore after 1st may 2026
+
 ![Permission wheel](permission_wheel_zero.png)
 
 ## Data
